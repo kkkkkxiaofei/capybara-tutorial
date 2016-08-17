@@ -16,8 +16,10 @@ RSpec.feature 'post feature', type: :feature do
             new_post_page.create_post_button.click
         end
         sleep(1)
-        expect(post_list_page.notice_message).to eq('Post was successfully created.')
-        post_list_page.back_link.click
+        on_page_with :show_post do |show_post_page|
+            expect(show_post_page.notice_message).to eq('Post was successfully created.')
+            show_post_page.back_link.click
+        end
         expect(post_list_page.posts_in_list.length).to eq(1)
     end
   end
