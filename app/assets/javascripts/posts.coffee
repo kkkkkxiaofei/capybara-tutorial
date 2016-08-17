@@ -13,7 +13,7 @@ setTimeout(() ->
       $.ajax('/posts/top-10').done((data) ->
         data.forEach((item) ->
           $('.top-10-container .top-10-list').append("
-          <li> #{item.title}</li>
+          <li class=\"top-item\"> #{item.title}</li>
           ")
         )
       )
