@@ -2,7 +2,7 @@ module PageWithNewPost
 	include Gizmo::PageMixin
 
 	def valid?
-		has_css?('.new_post')
+		has_selector?('#new_post')
 	end
 
 	def create_post_button
@@ -21,4 +21,5 @@ module PageWithNewPost
 		fill_in('post_title', with: title)
 		fill_in('post_content', with: content)
 	end
+	
 end

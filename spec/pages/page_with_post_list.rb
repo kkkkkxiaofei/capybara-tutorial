@@ -17,16 +17,12 @@ module PageWithPostList
 		find('.actions input[value="Create Post"]')
 	end
 
-	def notice_message
-		find('#notice').text
+	def get_post_title post_item_index
+		posts_in_list[post_item_index].find('.post-item-title').text
 	end
 
-	def back_link
-		find('a[href="/posts"]')
+	def get_post_content post_item_index
+		posts_in_list[post_item_index].find('.post-item-content').text
 	end
 
-	define_action :fill_post do |title, content|
-		fill_in('post_title', with: title)
-		fill_in('post_content', with: content)
-	end
 end
